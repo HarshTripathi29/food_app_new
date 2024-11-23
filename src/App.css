@@ -1,0 +1,42 @@
+
+
+.header{
+  display : flex;
+  flex-direction: row;
+  border: 1px solid black;
+  padding : 10px;
+  justify-content: space-between;
+}
+
+.body{
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width : 100vw;
+}
+
+.res-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.res-card{
+  border : 1px solid black;
+  height : 30vh;
+  width : 15vw;
+  margin : 10px;
+  padding: 10px;
+}
+
+.header ul{
+  display : flex;
+  flex-direction: row;
+}
+
+.header ul li{
+  list-style-type:none;
+  padding : 5px;
+}

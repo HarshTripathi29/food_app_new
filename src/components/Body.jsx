@@ -6,7 +6,7 @@ const Body=()=>{
 
     const[listOfRestaurants, setListOfRestaurants] = useState([]);
     const[inputSearch, SetInputSearch] = useState("");
-    
+    const[filteredRestaurants, setFilteredRestaurants] = useState([]);
 
     useEffect(()=>{
         fetchData();
@@ -18,7 +18,7 @@ const Body=()=>{
 
        // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
         setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-
+        setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
        //  console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants[0].info.name);
     }
 
@@ -39,10 +39,10 @@ const Body=()=>{
                 <button
                 onClick={()=>{
                     console.log(inputSearch);
-                    const filteredRestaurants = listOfRestaurants.filter((res)=>{
+                    const filteredList = listOfRestaurants.filter((res)=>{
                         return res.info.name.includes(inputSearch);
                     });
-                    setListOfRestaurants(filteredRestaurants);
+                    setFilteredRestaurants(filteredList);
                 }}                
                 >Search                    
                 </button>
@@ -57,7 +57,7 @@ const Body=()=>{
                 }}
             >Top rated restaurants</button>
             <div className="res-container">
-                {listOfRestaurants.map((restaurant)=>{
+                {filteredRestaurants.map((restaurant)=>{
                     let res = restaurant.info;
                     // console.log(res);
                     return(
